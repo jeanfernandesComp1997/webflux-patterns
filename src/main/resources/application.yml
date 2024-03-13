@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: webflux-patterns
+
+sec01:
+  review:
+    service: http://localhost:7070/sec01/review/
+  promotion:
+    service: http://localhost:7070/sec01/promotion/
+  product:
+    service: http://localhost:7070/sec01/product/

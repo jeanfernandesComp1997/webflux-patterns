@@ -7,6 +7,7 @@ import com.sample.webfluxpatterns.sec03.dto.Status
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
+import org.springframework.web.reactive.function.client.awaitBody
 import reactor.core.publisher.Mono
 
 @Component
@@ -29,7 +30,7 @@ class InventoryClientImpl(
         return callService(DEDUCT, inventoryRequest)
     }
 
-    override fun refund(inventoryRequest: InventoryRequest): Mono<InventoryResponse> {
+    override fun restore(inventoryRequest: InventoryRequest): Mono<InventoryResponse> {
         return callService(RESTORE, inventoryRequest)
     }
 
@@ -41,6 +42,15 @@ class InventoryClientImpl(
             .retrieve()
             .bodyToMono(InventoryResponse::class.java)
             .onErrorReturn(buildErrorResponse(inventoryRequest))
+    }
+
+    private suspend fun callServiceSuspend(endpoint: String, inventoryRequest: InventoryRequest): InventoryResponse {
+        return client
+            .post()
+            .uri(endpoint)
+            .bodyValue(inventoryRequest)
+            .retrieve()
+            .awaitBody()
     }
 
     private fun buildErrorResponse(inventoryRequest: InventoryRequest): InventoryResponse {

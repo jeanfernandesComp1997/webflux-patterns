@@ -7,6 +7,6 @@ data class OrderResponse(
     val productId: Int,
     val orderId: UUID,
     val status: Status,
-    val shippingAddress: Address,
-    val expectedDelivery: String
+    val shippingAddress: Address?,
+    val expectedDelivery: String?
 )

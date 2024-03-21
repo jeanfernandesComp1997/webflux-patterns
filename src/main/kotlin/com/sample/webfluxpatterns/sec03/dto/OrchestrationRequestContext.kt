@@ -1,16 +1,16 @@
 package com.sample.webfluxpatterns.sec03.dto
 
-import java.util.UUID
+import java.util.*
 
 data class OrchestrationRequestContext(
     val orderId: UUID = UUID.randomUUID(),
     var orderRequest: OrderRequest,
-    var productPrice: Int?,
-    var paymentRequest: PaymentRequest?,
-    var paymentResponse: PaymentResponse?,
-    var inventoryRequest: InventoryRequest?,
-    var inventoryResponse: InventoryResponse?,
-    var shippingRequest: ShippingRequest?,
-    var shippingResponse: ShippingResponse?,
-    var finalStatus: Status?
+    var productPrice: Int? = null,
+    var paymentRequest: PaymentRequest? = null,
+    var paymentResponse: PaymentResponse? = null,
+    var inventoryRequest: InventoryRequest? = null,
+    var inventoryResponse: InventoryResponse? = null,
+    var shippingRequest: ShippingRequest? = null,
+    var shippingResponse: ShippingResponse? = null,
+    var finalStatus: Status? = null
 )

@@ -7,7 +7,7 @@ import java.util.function.Predicate
 
 abstract class Orchestrator {
 
-    abstract fun createOrchestrationRequestContext(ctx: OrchestrationRequestContext): Mono<OrchestrationRequestContext>
+    abstract fun create(ctx: OrchestrationRequestContext): Mono<OrchestrationRequestContext>
 
     abstract fun isSuccess(): Predicate<OrchestrationRequestContext>
 

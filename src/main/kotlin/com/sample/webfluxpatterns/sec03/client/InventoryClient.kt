@@ -8,5 +8,5 @@ interface InventoryClient {
 
     fun deduct(inventoryRequest: InventoryRequest): Mono<InventoryResponse>
 
-    fun refund(inventoryRequest: InventoryRequest): Mono<InventoryResponse>
+    fun restore(inventoryRequest: InventoryRequest): Mono<InventoryResponse>
 }

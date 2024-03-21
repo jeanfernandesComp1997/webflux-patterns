@@ -9,7 +9,7 @@ import reactor.core.scheduler.Schedulers
 
 @Service
 class OrderCancellationService(
-    private val orchestrators: List<Orchestrator>
+    orchestrators: List<Orchestrator>
 ) {
 
     private var sink: Sinks.Many<OrchestrationRequestContext> = Sinks.many().multicast().onBackpressureBuffer()

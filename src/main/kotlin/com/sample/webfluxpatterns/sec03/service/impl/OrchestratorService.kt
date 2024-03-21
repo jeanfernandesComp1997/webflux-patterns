@@ -37,7 +37,7 @@ class OrchestratorService(
             .retrieveProduct(ctx.orderRequest.productId)
             .map { it.price }
             .doOnNext { ctx.productPrice = it }
-            .thenReturn(ctx)
+            .map { ctx }
     }
 
     private fun doOrderPostProcessing(ctx: OrchestrationRequestContext) {

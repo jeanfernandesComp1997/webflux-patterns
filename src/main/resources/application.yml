@@ -2,6 +2,14 @@ spring:
   application:
     name: webflux-patterns
 
+logging:
+  level:
+    reactor:
+      netty:
+        http:
+          client:
+            HttpClient: DEBUG
+
 sec01:
   review:
     service: http://localhost:7070/sec01/review/
@@ -37,3 +45,9 @@ sec04:
     service: http://localhost:7070/sec04/inventory/
   shipping:
     service: http://localhost:7070/sec04/shipping/
+
+sec05:
+  car:
+    service: http://localhost:7070/sec05/car/reserve
+  room:
+    service: http://localhost:7070/sec05/room/reserve

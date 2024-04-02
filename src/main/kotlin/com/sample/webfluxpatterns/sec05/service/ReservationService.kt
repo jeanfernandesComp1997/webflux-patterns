@@ -18,14 +18,14 @@ class ReservationService(
 ) {
 
     private var map: Map<ReservationType, ReservationHandler> = handlers
-        //.associateBy(ReservationHandler::getType)
-        .stream()
-        .collect(
-            Collectors.toMap(
-                ReservationHandler::getType,
-                Function.identity()
-            )
-        )
+        .associateBy(ReservationHandler::getType)
+//        .stream()
+//        .collect(
+//            Collectors.toMap(
+//                ReservationHandler::getType,
+//                Function.identity()
+//            )
+//        )
 
 
     fun reserve(request: Flux<ReservationItemRequest>): Mono<ReservationResponse> {

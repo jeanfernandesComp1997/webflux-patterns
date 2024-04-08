@@ -51,3 +51,9 @@ sec05:
     service: http://localhost:7070/sec05/car/reserve
   room:
     service: http://localhost:7070/sec05/room/reserve
+
+sec06:
+  review:
+    service: http://localhost:7070/sec06/review/
+  product:
+    service: http://localhost:7070/sec06/product/

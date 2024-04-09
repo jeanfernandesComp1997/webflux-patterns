@@ -45,7 +45,6 @@ class ReviewClientImpl(
                         }
                     }
             )
-
             .onErrorReturn(listOf<ReviewResponse>())
     }
 }

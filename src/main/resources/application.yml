@@ -57,3 +57,9 @@ sec06:
     service: http://localhost:7070/sec06/review/
   product:
     service: http://localhost:7070/sec06/product/
+
+sec07:
+  review:
+    service: http://localhost:7070/sec07/review/
+  product:
+    service: http://localhost:7070/sec07/product/

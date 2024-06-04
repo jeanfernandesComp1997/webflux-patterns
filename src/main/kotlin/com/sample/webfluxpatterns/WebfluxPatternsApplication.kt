@@ -3,7 +3,7 @@ package com.sample.webfluxpatterns
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication(scanBasePackages = ["com.sample.webfluxpatterns.sec07"])
+@SpringBootApplication(scanBasePackages = ["com.sample.webfluxpatterns.sec08"])
 class WebfluxPatternsApplication
 
 fun main(args: Array<String>) {

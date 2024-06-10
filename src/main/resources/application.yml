@@ -23,6 +23,17 @@ resilience4j.circuitbreaker:
         - org.springframework.web.reactive.function.client.WebClientResponseException
         - java.util.concurrent.TimeoutException
 
+resilience4j.ratelimiter:
+  instances:
+    calculator-service:
+      limitRefreshPeriod: 20s
+      limitForPeriod: 5
+      timeoutDuration: 5s
+    review-service:
+      limitRefreshPeriod: 20s
+      limitForPeriod: 3
+      timeoutDuration: 0s
+
 sec01:
   review:
     service: http://localhost:7070/sec01/review/
@@ -82,3 +93,9 @@ sec08:
     service: http://localhost:7070/sec08/review/
   product:
     service: http://localhost:7070/sec08/product/
+
+sec09:
+  review:
+    service: http://localhost:7070/sec09/review/
+  product:
+    service: http://localhost:7070/sec09/product/

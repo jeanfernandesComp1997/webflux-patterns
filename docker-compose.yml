@@ -1,0 +1,10 @@
+version: '3'
+services:
+  external-services-v2-api:
+    image: openjdk:11
+    container_name: java-container
+    ports:
+      - 7070:7070
+    volumes:
+      - ./external-services-v2.jar:/app/app.jar
+    command: ["java", "-jar", "/app/app.jar"]

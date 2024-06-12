@@ -99,3 +99,9 @@ sec09:
     service: http://localhost:7070/sec09/review/
   product:
     service: http://localhost:7070/sec09/product/
+
+sec10:
+  review:
+    service: http://localhost:7070/sec10/review/
+  product:
+    service: http://localhost:7070/sec10/product/

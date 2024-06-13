@@ -6,17 +6,26 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
+import reactor.core.scheduler.Schedulers
 
 @RestController
 @RequestMapping("sec10")
 class FibonacciController {
+
+    private val scheduler = Schedulers.newParallel("fib", 12)
 
     // 0, 1, 1, 2, 3, 5, 8, 13
 
     // CPU intensive task
     @GetMapping("fibonacci/{input}")
     fun fibonacci(@PathVariable input: Long): Mono<ResponseEntity<Long>> {
-        return Mono.fromSupplier { findFibonacci(input) }.map { ResponseEntity.ok(it) }
+        return Mono.fromSupplier {
+            findFibonacci(input)
+        }
+            .subscribeOn(scheduler)
+            .map {
+                ResponseEntity.ok(it)
+            }
     }
 
     private fun findFibonacci(input: Long): Long {

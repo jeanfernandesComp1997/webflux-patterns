@@ -26,7 +26,7 @@ class BulkHeadTest {
     }
 
     private fun fibonacciRequests(): Mono<Void> {
-        return Flux.range(1, 2)
+        return Flux.range(1, 40)
             .flatMap {
                 client.get()
                     .uri("fibonacci/46")
@@ -39,7 +39,7 @@ class BulkHeadTest {
 
     private fun productRequests(): Mono<Void> {
         return Mono.delay(Duration.ofMillis(100))
-            .thenMany(Flux.range(1, 2))
+            .thenMany(Flux.range(1, 40))
             .flatMap {
                 client.get()
                     .uri("products/1")
